@@ -1,0 +1,63 @@
+#calc{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	
+}
+.screen{
+	width:20rem;
+	height: 3rem;
+	font-size: 3rem;
+	border: 1px solid black;
+
+}
+.func{
+	background-color: red;
+}
+.number{
+	background-color: green;
+}
+.keypad button{
+	width: 5rem;
+	height: 5rem;
+	font-size: 2rem;
+}
+#zero{
+	width:10rem;
+}
+#equal{
+	height: 10rem;
+	margin-bottom: -5rem;
+}
+
+.row1{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+
+}
+.row2{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+
+}
+.row3{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+
+}
+.row4{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+
+}
+.row5{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+
+}
