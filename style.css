@@ -3,25 +3,34 @@
 	align-items: center;
 	justify-content: center;
 	align-content: center;
+	margin: 10rem 0 0 0;
+	width: 20rem;
+	height: auto;
+	border:2px solid black;
+	
+
 	
 }
-.screen{
+#screen{
 	width:20rem;
 	height: 3rem;
 	font-size: 3rem;
 	border: 1px solid black;
+	text-align: right;
 
 }
 .func{
-	background-color: red;
+	background-color: pink;
 }
 .number{
-	background-color: green;
+	background-color: purple;
 }
 .keypad button{
 	width: 5rem;
 	height: 5rem;
-	font-size: 2rem;
+	font-size: 2rem; 
+	border-radius: 20%;
+	
 }
 #zero{
 	width:10rem;
