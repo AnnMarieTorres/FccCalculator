@@ -1,15 +1,77 @@
 
 
 var total=0;
-
-var entry="";
+var prevEntry='';
+var entry='';
+var log =[];
+var number1=0;
+var number2=0;
+var sign=
 $(document).ready(function(){
 	$('button').click(function(){
 		entry = $(this).attr("value");
-		console.log('entry:'+entry);
-		$('#screen').html(entry);
+		if(prevEntry===''&&isNaN(entry)){
+			prevEntry='';
+			entry='';
+		}
+			else{
+				
+			console.log('entry:'+entry);
+			console.log('prev: '+prevEntry)
+
+			//if clear (ac, ce)clear all or clear last operation
+			if(entry==='ac'||entry==='ce'){
+				if(entry==='ac'){
+					prevEntry='';
+					log=[];
+					entry='';
+					console.log('entry ac');
+				}else if(entry==='ce'){
+					console.log('entry ce');
+				}
+				
+			}
+			// = operator
+			if(entry==='='){
+				if(prevEntry===''&log===[]){
+					entry='';
+				}
+				else{
+					//=function
+				}
+					
+			}
+
+
+
+			//if decimal no repeat per number
+			if(entry==='.'&& log.indexOf('.')<0){
+				$('#screen').append(entry);
+				console.log('now '+entry);
+			}else if(entry==='.' && log.indexOf('.')>=0){
+				console.log('...');
+			}
+			
+
+			//if number allow additional numbers
+			if(prevEntry==='9'||prevEntry==='8'||prevEntry==='7'||prevEntry==='6'||prevEntry==='5'||prevEntry==='4'||prevEntry==='3'||prevEntry==='2'||prevEntry==='1'||prevEntry==='0'||prevEntry==='.'){
+				if(entry!=='.'){
+					$('#screen').append(entry);
+				}
+				
+			}else{
+				$('#screen').html(entry);
+				log=[];
+				
+			}
+			prevEntry=entry;
+			log.push(entry);
+			console.log('log '+log);
+		}
 	});
-});
+}); //end ready function
+
+
 // function acClick(){
 // 	total = 0;
 // 	document.getElementById("screen").value=0;
