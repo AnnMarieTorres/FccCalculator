@@ -6,40 +6,44 @@
 </head>
 <body>
 <div id="calc">
-	<div id="screen">0<div>
+<div id="title">Electronic Calculator</div>
+	<div id="screen">0</div>
 	<div class="keypad">
 		<div class="row1">
-			<button class="clear" onclick="acClick()">AC</button>
-			<button class="clear" onclick="ceClick()">CE</button>
-			<button class="func" onclick="divClick()">/</button>
-			<button class="func" onclick="multClick()">*</button>
+			<button class="clear" value="ac">AC</button>
+			<button class="clear" value="ce">CE</button>
+			<button class="func" value="/">&divide</button>
+			<button class="func" value="*">*</button>
 		</div>
 		<div class="row2">
-			<button class="number" onclick="sevenClick()">7</button>
-			<button class="number" onclick="eightClick()">8</button>
-			<button class="number" onclick="nineClick()">9</button>
-			<button class="func" onclick="minusClick()">-</button>
+			<button class="number" value="7">7</button>
+			<button class="number" value="8">8</button>
+			<button class="number" value="9">9</button>
+			<button class="func" value="-">-</button>
 		</div>
 		<div class="row3">
-			<button class="number" onclick="fourClick()">4</button>
-			<button class="number" onclick="fiveClick()">5</button>
-			<button class="number" onclick="sixClick()">6</button>
-			<button class="func" onclick="plusClick()">+</button>
+			<button class="number" value="4">4</button>
+			<button class="number" value="5">5</button>
+			<button class="number" value="6">6</button>
+			<button class="func" value="+">+</button>
 		</div>
 		<div class="row4">
-			<button class="number" onclick="oneClick()">1</button>
-			<button class="number" onclick="twoClick()">2</button>
-			<button class="number" onclick="threeClick()">3</button>
-			<button class="func" id="equal" onclick="equalClick()">=</button>
+			<button class="number" value="1">1</button>
+			<button class="number" value="2">2</button>
+			<button class="number" value="3">3</button>
+			<button class="func" id="equal" value="=">=</button>
 		</div>
 		<div class="row5">
-			<button class="number" id="zero" onclick="zeroClick()">0</button>
-			<button class="number" onclick="decimalClick()">.</button>
+			<button class="number" id="zero" value="0">0</button>
+			<button class="number" value=".">.</button>
 			
 		</div>
 	</div> <!--end keypad-->
 
 </div><!--end calc-->
+<!-- SCRIPT FILES -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
+<!-- END SCRIPT FILES -->
 </body>
 </html>
