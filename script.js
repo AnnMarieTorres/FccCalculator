@@ -1,147 +1,54 @@
+var entry=[''];
+var total;
+var operators1=['*','/','+','-'];
+var operators2=['.'];
+var nums=[0,1,2,3,4,5,6,7,8,9];
 
+function getValue(input){
+	if(operators2.includes(entry[entry.length-1])===true && input==='.'){
+		console.log('duplicate "."');
+	}else if(entry.length===1 && operators1.includes(input)===false){
+		entry.push(input);
+	}else if(operators1.includes(entry[entry.length-1])===false&&entry.length>1){
+		entry.push(input);
+	}
+	else if(nums.includes(Number(input))){
+		entry.push(input);
+	}
+	update();
+}
 
-var total=0;
-var prevEntry='';
-var entry='';
-var log =[];
-var number1=0;
-var number2=0;
-var sign=
+function update(){
+	total=entry.join('');
+	$('#screen').html(total);
+	console.log(entry);
+}
+
+function getTotal(){
+	total = entry.join('');
+	$("#screen").html(eval(total));
+}
+
 $(document).ready(function(){
 	$('button').click(function(){
-		entry = $(this).attr("value");
-		if(prevEntry===''&&isNaN(entry)){
-			prevEntry='';
-			entry='';
-		}
-			else{
-				
-			console.log('entry:'+entry);
-			console.log('prev: '+prevEntry)
-
-			//if clear (ac, ce)clear all or clear last operation
-			if(entry==='ac'||entry==='ce'){
-				if(entry==='ac'){
-					prevEntry='';
-					log=[];
-					entry='';
-					console.log('entry ac');
-				}else if(entry==='ce'){
-					console.log('entry ce');
-				}
-				
-			}
-			// = operator
-			if(entry==='='){
-				if(prevEntry===''&log===[]){
-					entry='';
-				}
-				else{
-					//=function
-				}
-					
-			}
-
-
-
-			//if decimal no repeat per number
-			if(entry==='.'&& log.indexOf('.')<0){
-				$('#screen').append(entry);
-				console.log('now '+entry);
-			}else if(entry==='.' && log.indexOf('.')>=0){
-				console.log('...');
-			}
-			
-
-			//if number allow additional numbers
-			if(prevEntry==='9'||prevEntry==='8'||prevEntry==='7'||prevEntry==='6'||prevEntry==='5'||prevEntry==='4'||prevEntry==='3'||prevEntry==='2'||prevEntry==='1'||prevEntry==='0'||prevEntry==='.'){
-				if(entry!=='.'){
-					$('#screen').append(entry);
-				}
-				
+		if($(this).attr("value")==='ac'){
+			entry=[''];
+			update();
+		}else if($(this).attr("value")==='ce'){
+			entry.pop();
+			update();
+		}else if($(this).attr("value")==="="){
+			getTotal();
+		}else{
+			if(entry[entry.length-1].indexOf("*","/","+","-",".")===-1){
+				getValue($(this).attr("value"));
 			}else{
-				$('#screen').html(entry);
-				log=[];
-				
+				getValue($(this).attr("value"))
 			}
-			prevEntry=entry;
-			log.push(entry);
-			console.log('log '+log);
 		}
+
+		
 	});
 }); //end ready function
 
 
-// function acClick(){
-// 	total = 0;
-// 	document.getElementById("screen").value=0;
-// 	//window.alert("ac");
-// }
-// function ceClick(){
-// 	//remove last option
-// 	//window.alert("ce");
-// }
-// function divClick(){
-// 	//divide
-// 	//window.alert("divide");
-// }
-// function multClick(){
-// 	//multiply
-// 	//window.alert("multiply");
-// }
-// function minusClick(){
-// 	//minus
-// 	//window.alert("minus");
-// }
-// function plusClick(){
-// 	//plus
-// 	//window.alert("plus");
-// }
-// function equalClick(){
-// 	//equal
-// 	//window.alert("equal");
-// }
-// function decimalClick(){
-// 	//.
-// 	//window.alert("decimal");
-// }
-// function nineClick(){
-// 	//9
-// 	//window.alert("9");
-// }
-// function eightClick(){
-// 	//8
-// 	//window.alert("8");
-// }
-// function sevenClick(){
-// 	//7
-// 	//window.alert("7");
-// }
-// function sixClick(){
-// 	//6
-// 	//window.alert("6");
-// }
-// function fiveClick(){
-// 	//5
-// 	//window.alert("5");
-// }
-// function fourClick(){
-// 	//4
-// 	//window.alert("4");
-// }
-// function threeClick(){
-// 	//3
-// 	//window.alert("3");
-// }
-// function twoClick(){
-// 	//2
-// 	//window.alert("2");
-// }
-// function oneClick(){
-// 	//1
-// 	//window.alert("1");
-// }
-// function zeroClick(){
-// 	//0
-// 	//window.alert("0");
-// }
